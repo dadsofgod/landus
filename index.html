@@ -1,1 +1,91 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'/><meta name='viewport' content='width=device-width, initial-scale=1'/><title>LandUs</title></head><body><p>See artifacts for full file. Deploy pending.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>LandUs — Private Ground. One Day.</title>
+<meta name="theme-color" content="#0c0a07"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{--n:#0c0a07;--p:#16130e;--g:#c6a15a;--g2:#e8d7a4;--c:#f4ead6;--m:#b9ae96;--line:rgba(198,161,90,.28)}
+*{box-sizing:border-box;margin:0;padding:0}html,body{background:var(--n);color:var(--c)}
+body{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.5;padding-bottom:88px}
+h1,h2,h3,.brand,.btn,.tab,.kicker,.price{font-family:Cinzel,serif;letter-spacing:.1em}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:12px 16px;padding-top:calc(10px + env(safe-area-inset-top));background:rgba(12,10,7,.94);border-bottom:1px solid var(--line)}
+.brand{font-size:18px}.brand i{font-style:normal;color:var(--g)}
+.chip{margin-left:auto;font-size:10px;border:1px solid var(--g);color:var(--g);padding:4px 8px}
+.view{display:none}.view.active{display:block}
+.hero{min-height:70vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(12,10,7,.2),rgba(12,10,7,.85)),url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=80") center/cover}
+.hero-inner{padding:24px 18px 32px}
+.kicker{color:var(--g);font-size:11px;text-transform:uppercase}
+.hero h1{font-size:40px;line-height:.95;text-transform:uppercase;margin:8px 0 12px}
+.hero h1 em{font-style:normal;color:var(--g)}
+.hero p{color:var(--g2);font-size:18px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{border:0;padding:12px 16px;text-transform:uppercase;font-size:11px;background:#5d6a3a;color:#fff}
+.btn.gold{background:var(--g);color:var(--n)}.btn.ghost{background:transparent;border:1px solid var(--g);color:var(--g2)}
+.btn.full{width:100%}.btn.danger{background:#6e2f22}.btn.sm{padding:6px 10px;font-size:10px}
+.wrap{padding:20px 16px;max-width:980px;margin:0 auto}
+.card,.estate,.stat{background:var(--p);border:1px solid var(--line)}
+.card{padding:16px;margin-bottom:12px}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0}
+.stat{padding:12px}.stat b{display:block;color:var(--g);font-family:Cinzel,serif}
+.estates{display:grid;gap:12px}
+.art{height:130px;display:flex;align-items:flex-end;padding:10px;background-size:cover;position:relative}
+.art:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(12,10,7,.75))}
+.art span{position:relative;z-index:1}
+.woods{background-image:url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=70")}
+.grove{background-image:url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=70")}
+.field{background-image:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=70")}
+.creek{background-image:url("https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=800&q=70")}
+.body{padding:12px}h3{text-transform:uppercase;font-size:14px}
+.mute{color:var(--m)}.price{color:var(--g);font-size:20px}
+label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--m);margin:8px 0 4px}
+input,select,textarea{width:100%;background:#221c15;border:1px solid var(--line);padding:10px;color:var(--c)}
+.form{display:grid;gap:8px}table{width:100%;border-collapse:collapse}td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left}
+.ok{color:#8fbf6a}.bad{color:#d48a72}
+.tabbar{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);background:#0a0806;border-top:1px solid var(--line);padding:6px 0 calc(8px + env(safe-area-inset-bottom))}
+.tab{background:0;border:0;color:#8a7f6c;font-size:9px;text-transform:uppercase}.tab.active{color:var(--g2)}
+.tab b{display:block;font-size:14px}
+</style></head>
+<body>
+<header class="top"><div><div class="brand">LAND<i>US</i></div></div><span class="chip" id="roleChip">Guest</span></header>
+<section id="view-home" class="view active"><div class="hero"><div class="hero-inner"><div class="kicker">Private daily rights</div><h1>Quiet timber.<br><em>One sunrise.</em></h1><p>Named ground, one day at a time.</p><div class="row"><button class="btn gold" onclick="show('browse')">View estates</button><button class="btn ghost" onclick="show('owner');setRole('owner')">Offer ground</button></div></div></div>
+<div class="wrap"><div class="stats"><div class="stat"><b>Daily</b>One date.</div><div class="stat"><b>Named</b>A fence line.</div><div class="stat"><b>Capped</b>Owner sets heads.</div></div><div class="estates" id="homeGrid"></div></div></section>
+<section id="view-browse" class="view"><div class="wrap"><h2>Open estates</h2><div class="form" style="margin:12px 0"><input id="q" placeholder="Search" oninput="renderBrowse()"><select id="filterCounty" onchange="renderBrowse()"><option value="">All counties</option></select><select id="filterGame" onchange="renderBrowse()"><option value="">Any game</option><option>Deer</option><option>Turkey</option><option>Pheasant</option><option>Duck</option></select><select id="filterType" onchange="renderBrowse()"><option value="">Any cover</option><option value="woods">Timber</option><option value="grove">Grove</option><option value="field">Field</option><option value="creek">Bottom</option></select></div><div class="estates" id="plotGrid"></div></div></section>
+<section id="view-detail" class="view"><div class="wrap"><button class="btn ghost sm" onclick="show('browse')">Back</button><div id="detailArt" class="art woods" style="margin:12px 0"></div><div class="card"><h2 id="detailTitle"></h2><p class="mute" id="detailMeta"></p><p id="detailNotes"></p><p><strong>Access</strong><br><span id="detailAccess"></span></p><ul id="detailRules" class="mute"></ul></div><div class="card"><h3>Reserve</h3><div class="price" id="detailPrice"></div><form class="form" onsubmit="submitBooking(event)"><input type="date" id="bookDate" required onchange="updateBookedHint()"><p class="bad" id="bookedHint"></p><input id="bookName" required placeholder="Guest name"><input id="bookParty" type="number" min="1" value="1"><textarea id="bookNote" rows="2" placeholder="Note"></textarea><label style="text-transform:none;letter-spacing:0;font-family:inherit;font-size:15px;display:flex;gap:8px"><input id="bookWaiver" type="checkbox" required style="width:auto"> I hold my license and will keep house rules.</label><button class="btn gold full" type="submit">Confirm</button><p id="bookMsg"></p></form></div></div></section>
+<section id="view-owner" class="view"><div class="wrap"><h2>Landowner desk</h2><div class="stats"><div class="stat"><b id="statPlots">0</b>Estates</div><div class="stat"><b id="statBookings">0</b>Books</div><div class="stat"><b id="statEarned">$0</b>Value</div></div><div class="card"><form class="form" onsubmit="addPlot(event)"><input id="newName" required placeholder="Estate name"><input id="newOwner" required placeholder="Owner"><input id="newPhone" placeholder="Phone"><input id="newCounty" required placeholder="County"><input id="newState" value="IA"><input id="newAcres" type="number" value="40"><select id="newType"><option value="woods">Timber</option><option value="grove">Grove</option><option value="field">Field</option><option value="creek">Bottom</option></select><input id="newPrice" type="number" value="95"><input id="newMax" type="number" value="2"><input id="newGame" placeholder="Deer, Turkey"><input id="newAccess" placeholder="Access"><input id="newRules" placeholder="Rules"><textarea id="newNotes" rows="2"></textarea><button class="btn gold" type="submit">Publish</button></form></div><div class="card"><table><tbody id="ownerPlots"></tbody></table></div></div></section>
+<section id="view-bookings" class="view"><div class="wrap"><h2>Reservations</h2><div class="card" id="bookingTable"></div></div></section>
+<section id="view-about" class="view"><div class="wrap"><div class="card"><h2>The house</h2><p>Daily hunting rights on named Iowa ground. Guest carries license. Owner writes the rules. LandUs keeps the book.</p></div></div></section>
+<nav class="tabbar">
+<button class="tab nav-link active" data-view="home" onclick="show('home')"><b>⌂</b>Home</button>
+<button class="tab nav-link" data-view="browse" onclick="show('browse')"><b>▣</b>Find</button>
+<button class="tab nav-link" data-view="owner" onclick="show('owner');setRole('owner')"><b>+</b>List</button>
+<button class="tab nav-link" data-view="bookings" onclick="show('bookings')"><b>☰</b>Book</button>
+<button class="tab nav-link" data-view="about" onclick="show('about')"><b>i</b>House</button>
+</nav>
+<script>
+const SP='landus_lux_plots',SB='landus_lux_books',SR='landus_lux_role';
+const SEED=[{id:'p1',name:'West Timber Forty',owner:'Harlan Beck',county:'Butler',state:'IA',acres:40,type:'woods',game:['Deer','Turkey'],price:125,huntersMax:2,access:'Gate off 240th.',rules:'No ATVs. Pack out brass.',notes:'North-facing draw.',phone:'(319) 555-0142'},{id:'p2',name:'Cedar Creek Bottom',owner:'Mae Eller',county:'Floyd',state:'IA',acres:28,type:'creek',game:['Deer','Duck'],price:95,huntersMax:3,access:'Old crib pull-in.',rules:'Stay off planted ground.',notes:'Oxbow timber.',phone:'(641) 555-0198'},{id:'p3',name:'Prairie Grove Strip',owner:'Tom Reicks',county:'Chickasaw',state:'IA',acres:12,type:'grove',game:['Pheasant'],price:65,huntersMax:4,access:'West shoulder.',rules:'No shooting to the road.',notes:'CRP edge.',phone:'(563) 555-0110'},{id:'p4',name:'North Field Hedgerow',owner:'Beck Farms',county:'Butler',state:'IA',acres:18,type:'field',game:['Pheasant','Deer'],price:75,huntersMax:2,access:'North approach.',rules:'After harvest only.',notes:'Hedgerow sits.',phone:'(319) 555-0166'},{id:'p5',name:'Big Woods Ridge',owner:'The Ridge',county:'Butler',state:'IA',acres:80,type:'woods',game:['Deer','Turkey'],price:165,huntersMax:3,access:'Pin drop after booking.',rules:'Stands down same day.',notes:'Two saddles.',phone:'(641) 555-0107'}];
+let plots=[],bookings=[],role='hunter',selected=null;
+function load(){plots=JSON.parse(localStorage.getItem(SP)||'null')||SEED;bookings=JSON.parse(localStorage.getItem(SB)||'null')||[];role=localStorage.getItem(SR)||'hunter';persist()}
+function persist(){localStorage.setItem(SP,JSON.stringify(plots));localStorage.setItem(SB,JSON.stringify(bookings));localStorage.setItem(SR,role)}
+function nextDays(n){const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+function show(v){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');const tab=v==='detail'?'browse':v;document.querySelectorAll('.tab').forEach(n=>n.classList.toggle('active',n.dataset.view===tab));scrollTo(0,0);if(v==='browse'||v==='home')renderBrowse();if(v==='owner')renderOwner();if(v==='bookings')renderBooks()}
+function setRole(n){role=n;persist();document.getElementById('roleChip').textContent=n==='owner'?'Owner':'Guest'}
+function card(p){return `<article class="estate" onclick="openPlot('${p.id}')"><div class="art ${p.type}"><span>${p.acres} ac · ${p.county}</span></div><div class="body"><h3>${esc(p.name)}</h3><div class="mute">${esc(p.owner)}</div><div class="price">$${p.price} <small>/ day</small></div></div></article>`}
+function renderBrowse(){const q=(document.getElementById('q')?.value||'').toLowerCase(),c=document.getElementById('filterCounty')?.value||'',g=document.getElementById('filterGame')?.value||'',t=document.getElementById('filterType')?.value||'';const sel=document.getElementById('filterCounty');if(sel){const cur=sel.value;sel.innerHTML='<option value="">All counties</option>'+[...new Set(plots.map(p=>p.county))].map(x=>`<option>${x}</option>`).join('');sel.value=cur}const list=plots.filter(p=>{const hay=(p.name+p.owner+p.county+p.game.join(' ')).toLowerCase();return(!q||hay.includes(q))&&(!c||p.county===c)&&(!g||p.game.includes(g))&&(!t||p.type===t)});const grid=document.getElementById('plotGrid');if(grid)grid.innerHTML=list.map(card).join('');const home=document.getElementById('homeGrid');if(home)home.innerHTML=plots.slice(0,4).map(card).join('')}
+function openPlot(id){selected=id;const p=plots.find(x=>x.id===id);document.getElementById('detailArt').className='art '+p.type;document.getElementById('detailArt').innerHTML=`<span>${p.acres} acres · ${p.county}</span>`;document.getElementById('detailTitle').textContent=p.name;document.getElementById('detailMeta').textContent=p.owner+' · '+p.phone;document.getElementById('detailNotes').textContent=p.notes;document.getElementById('detailAccess').textContent=p.access;document.getElementById('detailRules').innerHTML='<li>'+esc(p.rules)+'</li>';document.getElementById('detailPrice').textContent='$'+p.price;document.getElementById('bookDate').value=nextDays(1);document.getElementById('bookMsg').textContent='';updateBookedHint();show('detail')}
+function onDay(id,d){return bookings.filter(b=>b.plotId===id&&b.date===d)}
+function updateBookedHint(){const p=plots.find(x=>x.id===selected),d=document.getElementById('bookDate').value,seats=onDay(p.id,d).reduce((s,b)=>s+Number(b.party),0);document.getElementById('bookedHint').textContent=seats>=p.huntersMax?'Closed that day.':(seats?seats+' reserved.':'Open.')}
+function submitBooking(e){e.preventDefault();const p=plots.find(x=>x.id===selected),d=document.getElementById('bookDate').value,name=document.getElementById('bookName').value.trim(),party=+document.getElementById('bookParty').value||1,msg=document.getElementById('bookMsg');if(!name||!d){msg.className='bad';msg.textContent='Name and date required.';return}bookings.push({id:'b'+Date.now(),plotId:p.id,date:d,hunter:name,party,note:document.getElementById('bookNote').value,created:Date.now()});persist();msg.className='ok';msg.textContent='Held '+d+' on '+p.name+'. Call '+p.phone;updateBookedHint()}
+function renderBooks(){const el=document.getElementById('bookingTable'),rows=[...bookings].sort((a,b)=>a.date.localeCompare(b.date));el.innerHTML=rows.length?`<table>${rows.map(b=>{const p=plots.find(x=>x.id===b.plotId);return `<tr><td>${b.date}</td><td>${p?esc(p.name):'—'}</td><td>${esc(b.hunter)}</td><td><button class="btn danger sm" onclick="cancelBooking('${b.id}')">X</button></td></tr>`}).join('')}</table>`:'<p class="mute">None yet.</p>'}
+function cancelBooking(id){bookings=bookings.filter(b=>b.id!==id);persist();renderBooks()}
+function renderOwner(){document.getElementById('statPlots').textContent=plots.length;document.getElementById('statBookings').textContent=bookings.length;document.getElementById('statEarned').textContent='$'+bookings.reduce((s,b)=>{const p=plots.find(x=>x.id===b.plotId);return s+(p?p.price*b.party:0)},0);document.getElementById('ownerPlots').innerHTML=plots.map(p=>`<tr><td>${esc(p.name)}</td><td>$${p.price}</td><td><button class="btn danger sm" onclick="removePlot('${p.id}')">X</button></td></tr>`).join('')}
+function addPlot(e){e.preventDefault();const game=document.getElementById('newGame').value.split(',').map(s=>s.trim()).filter(Boolean);plots.unshift({id:'p'+Date.now(),name:document.getElementById('newName').value.trim(),owner:document.getElementById('newOwner').value.trim(),county:document.getElementById('newCounty').value.trim(),state:document.getElementById('newState').value||'IA',acres:+document.getElementById('newAcres').value||0,type:document.getElementById('newType').value,game:game.length?game:['Deer'],price:+document.getElementById('newPrice').value||0,huntersMax:+document.getElementById('newMax').value||1,access:document.getElementById('newAccess').value,rules:document.getElementById('newRules').value,notes:document.getElementById('newNotes').value,phone:document.getElementById('newPhone').value});persist();renderOwner();setRole('owner')}
+function removePlot(id){plots=plots.filter(p=>p.id!==id);persist();renderOwner()}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&','<':'<','>':'>','"':'"',"'":'&#39;'}[c]))}
+document.addEventListener('DOMContentLoaded',()=>{load();document.getElementById('roleChip').textContent=role==='owner'?'Owner':'Guest';renderBrowse()});
+</script></body></html>
